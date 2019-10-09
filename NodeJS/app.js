@@ -24,7 +24,7 @@ expressApp.use(bodyParser.json());
 //  -------------------
 
 expressApp.get("/", function (req, res) {
-	//console.log("Connection!");
+	console.log("Connection!");
 	res.send("thanks for checking out my web server. Now check out this video instead: https://www.youtube.com/watch?v=k55FYtqtXXU");
 });
 
@@ -35,8 +35,8 @@ expressApp.post("/api/bots", function (req, res) {
 
 	if (req.body.key === userSettings.Operations.MainUser.apikey) {
 		userGuildId = userSettings.Operations.MainUser.guildId;
-	//} else if (req.body.key === userSettings.Operations.AnotherUser.apikey) {
-	//	userGuildId = userSettings.Operations.Blockage.guildId;
+	} else if (req.body.key === userSettings.Operations.AnotherUser.apikey) {
+		userGuildId = userSettings.Operations.Blockage.guildId;
 	} else {
 		console.log("Somebody used an invalid API key.");
 		res.send("invalid key!");
